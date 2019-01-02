@@ -1,0 +1,33 @@
+
+Columns
+========
+dont use col-md-*
+use col-lg-* for regular column
+
+Break Points
+===========
+Main break point is 991px - at 991px everything collapses
+but
+Mobile breakpoint is 1024px or iOS devices - not compromisable (header links requirement)
+Mobile devices dont have hover so because of click requirement for the devices,
+header menu will collapse at 1024px or if it observes any device
+ipad has 1024px screen if rotated
+
+Dependencies
+============
+Its bootstrap 4 in here in system
+and jQuery 3
+So plz do not use bootstrap 3 - consult bootstrap 4 docs
+
+dependencies already included in system
+======================================
+bootstrap4
+owl carousel
+easing
+fontawesome 4
+ionicons
+Sticky Sidebar
+
+jQuery is not included in JS file - we will include jQuery in page seperately and jQuery v3+
+
+

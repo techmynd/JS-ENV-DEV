@@ -1,0 +1,5 @@
+> yarn run build
+
+source is src folder
+dist folder is destination
+

@@ -1,0 +1,314 @@
+@import 'bootstrap.min';
+@import 'font-awesome';
+@import 'ionicons';
+@import 'owl.carousel';
+@import 'owl.theme.default';
+
+// @import 'OverlayScrollbars';
+// @import 'OverlayScrollbars-os-theme-thick-dark';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900');
+
+$font-heading: 'Montserrat', sans-serif;
+$font-special-one: 'Montserrat', sans-serif;
+$font-regular: 'Montserrat', sans-serif;
+$color-blue: #142ea1;
+
+.clear, .clear5, .clear10, .clear20, .clear40, .clear80 {clear: both; line-height: 0; font-size: 0;}
+.clear {height:0;} .clear5 {height:5px;} .clear10 {height:10px;} .clear20 {height:10px;} .clear40 {height:40px;} .clear80 {height:80px;}
+
+@mixin inputPlaceholder() {
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    &::placeholder {
+      @content;
+    }
+}
+
+/*
+// usage
+@include inputPlaceholder() {
+	color: #8889b1;
+	font-weight: 600;
+}
+*/
+
+%heading-content {
+	font-family: $font-heading;
+	color:#1433b1;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+	padding: 0;
+	position: relative;
+	font-family: $font-regular;
+	color: #333;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+// major break point here ... 
+/////////////////////////////
+@media all and (max-width: 991px) {
+	// major break point here ... 
+	[class^="col-"] {
+		margin-bottom: 20px;
+	}
+	.container {
+		max-width: 100% !important;
+	}
+}
+// major break point ends here ... 
+/////////////////////////////
+
+a, .fa, img {
+	transition: all .2s ease-in-out;
+	backface-visibility: hidden;
+}
+
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+button, .btn, .btn-primary, .btn-default, .btn-success, .btn-danger, .btn-warning, input, textarea, .form-control {
+	border-radius: 0;
+	outline: none;
+	box-shadow: none;
+}
+.modal-content {
+	border-radius: 0;
+	border: 0;
+}
+.modal-header, .modal-footer {
+	border: 0;
+}
+
+input, textarea, .form-control {
+	border: 0;
+	border-bottom: 1px solid #ced4da;
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+
+
+.owl-carousel {
+	display: none;
+}
+
+.owl-theme .owl-nav {
+	margin-top: 0px;
+}
+.owl-products .owl-dots {margin-top: 0px;}
+// .owl-products .item {height:160px; line-height: 150px; display: flex; align-items: center; overflow:hidden; vertical-align:middle; text-align:center;}
+// .owl-products .item a {margin:auto !important; vertical-align:middle; display:inline-block; width: 100%;}
+// .owl-products .item img {max-height:160px; margin: 0 auto !important; display: inline-block !important; width: auto !important;}
+
+.home-product-slider {
+	.caption-wrap {
+		text-align: center;
+		padding: 30px 0;
+		width: 100%;
+		.caption {
+			color: #1433b1;
+			font-size: 42px;
+			display: inline-block;
+			position: relative;
+			font-family: $font-heading;
+			background-color: #fff;
+			@media all and (max-width: 991px) {
+				font-size: 32px;
+			}
+			&::before {
+				height: 2px;
+				background-color: #142ea1;
+				position: absolute;
+				left: -120%;
+    			right: 110%;
+				top: 58%;
+				transform: translateY(-50%);
+				content: "";
+				@media all and (max-width: 1024px) {
+					left: -90%;
+    				right: 110%;
+				}
+				@media all and (max-width: 800px) {
+					display: none;
+				}
+			}
+			&::after {
+				height: 2px;
+				background-color: #142ea1;
+				position: absolute;
+				left: 110%;
+    			right: -120%;
+				top: 58%;
+				transform: translateY(-50%);
+				content: "";
+				@media all and (max-width: 1024px) {
+					left: 110%;
+    				right: -90%;
+				}
+				@media all and (max-width: 800px) {
+					display: none;
+				}
+			}
+		}
+	}
+	.sliderWrap {
+		position: relative;
+		padding: 0 70px;
+		.owl-nav {
+			.owl-prev {
+				position: absolute;
+				left: -70px;
+				top: 50%;
+				transform: translateY(-50%);
+				outline: none;
+			}
+			.owl-next {
+				position: absolute;
+				right: -70px;
+				top: 50%;
+				transform: translateY(-50%);
+				outline: none;
+			}
+		}
+	}
+}
+
+.trigger-top-wrap {
+	display: inline-block;
+	text-align: center;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+	opacity: 0.8;
+	transform: translateY(-50%) scale(0.9, 0.9);
+	transition: all 0.2s ease-in-out;
+	backface-visibility: hidden;
+	&:hover {
+		transform: translateY(-50%) scale(1, 1);
+		opacity: 1;
+	}
+	@media all and (min-width: 992px) and (max-width: 1100px){
+		
+	}
+	@media all and (max-width: 991px){
+		position: static;
+		transform: translateY(0%) scale(1, 1);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			transform: translateY(0%) scale(1, 1);
+		}
+	}
+	.trigger-top {
+		width: 56px;
+		height: 56px;
+		border-radius: 50%;
+		border: 1px solid #142ea1;
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		@media all and (max-width: 991px){
+			flex-direction: row;
+		}
+	}
+	.txt-top {
+		display: block;
+		clear: both;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: $color-blue;
+		font-size: 13px;
+		font-weight: 600;
+		@media all and (max-width: 991px){
+			position: absolute;
+			top: 60px;
+		}
+	}
+}
+
+
+
+// SEARCH MODAL 
+
+.search-field-wrap {
+	.has-icon {
+		position: relative;
+		.fa {
+			position: absolute;
+			right: 6px;
+			top: 10px;
+			color: #999;
+		}
+		.form-control {
+			padding-right: 35px;
+			&:focus + .fa, &:focus ~ .fa {
+				color: #000;
+			}			
+		}
+	}
+}
+
+
+
+
+
+
+////////////////////////////
+// @NOT MOBILE
+////////////////////////////
+body.not-mobile {
+
+}
+
+////////////////////////////
+// @IS MOBILE
+////////////////////////////
+body.is-mobile {
+
+}
+
+body.mobile-menu-up {
+	
+}
