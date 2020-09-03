@@ -65,7 +65,7 @@
     "owl.carousel": "^2.3.4",
     "requirejs": "^2.3.6",
     "select2": "^4.0.3",
-    "serve": "^10.1.1",
+    "serve": "^10.1.2",
     "slimscroll": "^0.9.1"
   }
 }
